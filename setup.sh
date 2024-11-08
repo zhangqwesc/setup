@@ -66,4 +66,7 @@ if ! grep -q "plugins=(.*zsh-autosuggestions.*)" "$HOME/.zshrc"; then
     sed -i 's/plugins=(/plugins=(zsh-autosuggestions /' "$HOME/.zshrc"
 fi
 
+echo "Configuring editor..."
+echo 'export EDITOR="vim"' >> "$HOME/.zshrc"
+
 echo "Installation completed! Please restart your shell or run 'source ~/.zshrc'"
