@@ -2,6 +2,18 @@
 
 set -e
 
+# if run with root, abort
+if [[ $EUID -eq 0 ]]; then
+    echo "Error: This script must not be run as root"
+    exit 1
+fi
+
+# check user sudo access
+if ! sudo -v; then
+    echo "Error: sudo access is required"
+    exit 1
+fi
+
 if ! command -v apt &> /dev/null; then
     echo "Error: This script requires apt package manager (Ubuntu/Debian)"
     exit 1
