@@ -13,7 +13,7 @@ sudo apt install -y curl git wget build-essential cmake pkg-config libssl-dev zs
 
 echo "Changing default shell to zsh..."
 if [ "$SHELL" != "$(which zsh)" ]; then
-    chsh -s $(which zsh)
+    sudo usermod -s $(which zsh) $(whoami)
 else
     echo "zsh is already the default shell"
 fi
